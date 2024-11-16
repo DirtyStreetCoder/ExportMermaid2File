@@ -102,7 +102,7 @@
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
   },
-  "publisher": "Spammaster 50000",
+  "publisher": "Spam-Master",
   "repository": {
     "type": "git",
     "url": "https://github.com/DirtyStreetCoder/ExportMermaid2File"
