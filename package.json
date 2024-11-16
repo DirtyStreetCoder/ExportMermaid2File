@@ -2,7 +2,7 @@
   "name": "em2f",
   "displayName": "ExportMermaid2File",
   "description": "Export Mermaid Graphics to a File (png, svg...)",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.95.0"
@@ -10,8 +10,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-  ],
+  "activationEvents": [],
   "main": "./extension.js",
   "contributes": {
     "commands": [
