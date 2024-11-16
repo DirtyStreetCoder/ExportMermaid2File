@@ -60,14 +60,14 @@ Configure the extension in VS Code settings:
   - Default: 'white'
 
 ### Example Diagram
-```markdown
+````markdown
 ```mermaid
 graph TD
     A[Start] --> B{Is it working?}
     B -->|Yes| C[Great!]
     B -->|No| D[Debug]
 ```
-```
+````
 
 ### Notes
 - The exported file will be saved in the same directory as your Markdown file
