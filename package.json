@@ -2,7 +2,7 @@
   "name": "em2f",
   "displayName": "ExportMermaid2File",
   "description": "Export Mermaid Graphics to a File (png, svg...)",
-  "version": "0.0.67",
+  "version": "1.0.0",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.95.0"
@@ -102,10 +102,10 @@
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1"
   },
-  "publisher": "YourPublisherName",
+  "publisher": "Spammaster 50000",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YourUsername/em2f.git"
+    "url": "https://github.com/DirtyStreetCoder/ExportMermaid2File"
   },
   "keywords": [
     "mermaid",
