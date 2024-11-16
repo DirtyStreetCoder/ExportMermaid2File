@@ -1,0 +1,117 @@
+{
+  "name": "em2f",
+  "displayName": "ExportMermaid2File",
+  "description": "Export Mermaid Graphics to a File (png, svg...)",
+  "version": "0.0.67",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "em2f.export",
+        "title": "Export Mermaid Diagram",
+        "category": "Mermaid",
+        "icon": "$(export)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus && editorLangId == markdown",
+          "command": "em2f.export",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorLangId == markdown",
+          "command": "em2f.export",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "em2f.export",
+          "when": "editorLangId == markdown"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Export Mermaid 2 File",
+      "properties": {
+        "em2f.outputType": {
+          "type": "string",
+          "default": "svg",
+          "enum": [
+            "svg",
+            "png",
+            "pdf"
+          ],
+          "description": "Output file format"
+        },
+        "em2f.theme": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "forest",
+            "dark",
+            "neutral"
+          ],
+          "description": "Theme for the diagram"
+        },
+        "em2f.outputDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "Default output directory (absolute path or relative to workspace). Leave empty to use source file location"
+        },
+        "em2f.pngScale": {
+          "type": "number",
+          "default": 1,
+          "minimum": 0.1,
+          "maximum": 10,
+          "description": "Scale factor for PNG export (1 = 100%)"
+        },
+        "em2f.pngBackground": {
+          "type": "string",
+          "default": "white",
+          "description": "Background color for PNG export"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test",
+    "build": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.95.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "eslint": "^9.13.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  },
+  "publisher": "YourPublisherName",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YourUsername/em2f.git"
+  },
+  "keywords": [
+    "mermaid",
+    "diagram",
+    "export",
+    "markdown"
+  ],
+  "license": "MIT"
+}
