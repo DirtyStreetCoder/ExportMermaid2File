@@ -207,3 +207,10 @@ n.a.
 
 Initial release
 
+## License
+
+MIT
+
+Code published on
+https://github.com/DirtyStreetCoder/ExportMermaid2File
+
