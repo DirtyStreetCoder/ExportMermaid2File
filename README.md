@@ -4,11 +4,19 @@ This VS Code Plugin exports Mermaid graphs to files like svg, png, pdf...
 
 ## Features
 
-Export
+- Export Mermaid diagrams to multiple formats (SVG, PNG, PDF)
+- Multiple themes support
+- Configurable PNG export settings
+- High-quality PDF export with proper scaling
+- Easy access via editor title bar, context menu, or command palette
+- Support for custom output directories
 
 ## Requirements
 
-Mermaid
+- VS Code
+- Node.js and npm
+- Mermaid
+- Google Chrome or Microsoft Edge (for PDF export)
 
 ## Installation
 
@@ -21,20 +29,23 @@ ExportMermaid2File allows you to export Mermaid diagrams from your Markdown file
 ### Quick Export
 1. Open a Markdown file containing a Mermaid diagram
 2. Click the export icon in the editor title bar (appears when viewing markdown files)
-3. Enter the desired output filename
-4. Your diagram will be exported in the format specified in settings (default: SVG)
+3. Select your desired output format (SVG, PNG, or PDF)
+4. Enter the desired output filename
+5. Your diagram will be exported in the selected format
 
 ### Context Menu Export
 1. Right-click anywhere in a Markdown file
 2. Select "Export Mermaid Diagram" from the context menu
-3. Enter the desired output filename
-4. Your diagram will be exported using current settings
+3. Select your desired output format
+4. Enter the desired output filename
+5. Your diagram will be exported using current settings
 
 ### Command Palette
 1. Open the Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
 2. Type "Export Mermaid Diagram"
 3. Press Enter
-4. Enter the desired output filename
+4. Select your desired output format
+5. Enter the desired output filename
 
 ### Export Settings
 Configure the extension in VS Code settings:
@@ -42,7 +53,7 @@ Configure the extension in VS Code settings:
 * `em2f.outputType`: Choose output format
   - `svg` (default) - Vector graphics, best for web and scaling
   - `png` - Bitmap image, good for presentations
-  - `pdf` - PDF document, ideal for printing
+  - `pdf` - PDF document, ideal for printing with perfect scaling
 
 * `em2f.theme`: Select diagram theme
   - `default` - Standard Mermaid theme
@@ -59,6 +70,10 @@ Configure the extension in VS Code settings:
   - Use color names ('white', 'transparent') or hex codes (#FFFFFF)
   - Default: 'white'
 
+* `em2f.outputDirectory`: Set default output directory
+  - Absolute path or relative to workspace
+  - Leave empty to use source file location
+
 ### Example Diagram
 ````markdown
 ```mermaid
@@ -70,11 +85,12 @@ graph TD
 ````
 
 ### Notes
-- The exported file will be saved in the same directory as your Markdown file
+- The exported file will be saved in the same directory as your Markdown file (unless outputDirectory is set)
 - If a file with the same name exists, it will be overwritten
 - The extension requires Node.js and npm to be installed on your system
 - For PNG exports, consider using `pngScale` > 1 for high-DPI displays
-
+- For PDF exports, Google Chrome or Microsoft Edge must be installed
+- PDF export maintains perfect scaling and vector quality
 
 ## Extension Settings
 
@@ -108,6 +124,7 @@ Controls the format of the exported diagram.
   - Maintains vector quality
   - Good for formal documentation
   - Can be easily shared and viewed
+  - Requires Chrome or Edge browser installed
 
 #### Theme (`em2f.theme`)
 Defines the visual style of the diagram.
@@ -160,12 +177,21 @@ Sets the background color for PNG exports.
   - '#000000': Black background
   - Any valid CSS color name or hex code
 
+#### Output Directory (`em2f.outputDirectory`)
+Sets the default directory for exported files.
+* Default: "" (empty - uses source file location)
+* Examples:
+  - Absolute path: "C:\\exports" or "/home/user/exports"
+  - Relative path: "./exports" or "../exports"
+  - Environment variables: "%USERPROFILE%\\Documents\\exports"
+
 ### Usage Tips
 1. For web usage, stick with SVG format for best quality and smallest file size
 2. For presentations, use PNG with scale 2 or higher to ensure clarity when zooming
-3. For documents that will be printed, consider using PDF format
+3. For professional documents that will be printed, use PDF format for perfect scaling
 4. If your diagram has light colors, use PNG with white background for better visibility
 5. For dark mode applications, try the dark theme with transparent PNG background
+6. When generating PDFs, ensure Chrome or Edge is installed on your system
 
 ### Example Configurations
 For web development:
@@ -194,18 +220,26 @@ For print documents:
 }
 ```
 
-
 ## Known Issues
 
-n.a.
+- PDF export requires Google Chrome or Microsoft Edge to be installed
+- Some complex diagrams might take longer to export to PDF
 
 ## Release Notes
 
-n.a.
+### 1.2.0
+- Added high-quality PDF export support
+- Improved SVG handling and scaling
+- Added browser detection for PDF export
+- Enhanced error handling and logging
+
+### 1.1.0
+- Added PNG export customization
+- Added theme support
+- Added output directory configuration
 
 ### 1.0.0
-
-Initial release
+- Initial release
 
 ## License
 
@@ -213,4 +247,3 @@ MIT
 
 Code published on
 https://github.com/DirtyStreetCoder/ExportMermaid2File
-

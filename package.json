@@ -2,7 +2,7 @@
   "name": "em2f",
   "displayName": "ExportMermaid2File",
   "description": "Export Mermaid Graphics to a File (png, svg...)",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.95.0"
@@ -40,7 +40,7 @@
         {
           "command": "em2f.export",
           "when": "editorLangId == markdown"
-        }
+        }   
       ]
     },
     "configuration": {
@@ -94,12 +94,12 @@
     "build": "vsce package"
   },
   "devDependencies": {
-    "@types/vscode": "^1.95.0",
     "@types/mocha": "^10.0.9",
     "@types/node": "20.x",
-    "eslint": "^9.13.0",
+    "@types/vscode": "^1.95.0",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0"
   },
   "publisher": "Spam-Master",
   "repository": {
@@ -112,5 +112,8 @@
     "export",
     "markdown"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer-core": "^22.0.0"
+  }
 }
